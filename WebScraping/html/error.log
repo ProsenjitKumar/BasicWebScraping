@@ -3,3 +3,20 @@ Traceback (most recent call last):
   File "/Prosenjit/ProPythonProject/ProPythonTestPractice/WebScraping/MainWebScrapy.py", line 7, in <module>
     raise Exception
 Exception
+ERROR:root:HTTP Error 403: Forbidden
+Traceback (most recent call last):
+  File "/Prosenjit/ProPythonProject/ProPythonTestPractice/WebScraping/LeadingHere.py", line 25, in rake_up_webpage
+    html = urlopen(self.__url)
+  File "/usr/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.6/urllib/request.py", line 532, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.6/urllib/request.py", line 642, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.6/urllib/request.py", line 570, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.6/urllib/request.py", line 650, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 403: Forbidden

@@ -12,9 +12,9 @@ except Exception as e:
     WebLog.report(e)
 """
 
-atlassian = LeadingHere.AtlasLink(LeadingHere.url_atlassian, WebLog)
+atlassian = LeadingHere.AtlasLink(LeadingHere.url_alja, WebLog)
 
 atlassian.rake_up_webpage()
 atlassian.write_webpage_html_format()
 atlassian.read_webpage_from_html()
-atlassian.pare_simple_html()
+atlassian.parse_simple_html()

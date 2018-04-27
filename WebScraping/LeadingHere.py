@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 url_atlassian = 'https://www.atlassian.com/'
 url_devops = 'https://devops.com/'
 url_nginx = 'https://www.nginx.com/'
+url_alja = 'https://www.aljazeera.com/'
+
 file_path = 'html/atlassian.html'
 
 
@@ -52,7 +54,7 @@ class AtlasLink:
         self.__soup = BeautifulSoup(self.__data, 'html.parser')
 
 
-    def pare_simple_html(self):
+    def parse_simple_html(self):
         info_lists = self.__soup.find_all(['h1', 'h2', 'h3', 'h4'])
 
         htmltext = '''
