@@ -99,17 +99,70 @@ logging.basicConfig(
     format='%(message)s: %(threadName)5s',
 )
 
-async def do_add(student_id):
-  if student_id ==1:
-    #do something
-  elif student_id==2:
-    #do something
-  #continue
-  # sobkichui akisomoy return korbe
-  # 2 ta thread use kore korle better hobe
-    logging.INFO("Running Thread")
-    print("Student %s's doing...." % student_id)
-    await asyncio.sleep(7)
+def add():
+    x = 10
+    y = 99
+    p = x + y
+    return print(p)
 
-# akhane amon akta method thakbke jar moddhe prthom student ase jog,
-#  2 as biog, avabe korte thakbe.
+def sub():
+    x = 125
+    y = 99
+    p = x - y
+    return print(p)
+
+def multi():
+    x = 10
+    y = 99
+    p = x * y
+    return print(p)
+
+def divide():
+    x = 1000
+    y = 99
+    p = x / y
+    return print(p)
+
+
+async def do_tasks(student_id):
+  if student_id == 0:
+      logging.info("Running Thread")
+      print("Student %s's doing...." % student_id)
+      await asyncio.sleep(7)
+      add()
+  elif student_id == 1:
+      logging.info("Running Thread")
+      print("Student %s's doing...." % student_id)
+      await asyncio.sleep(7)
+      multi()
+  elif student_id == 2:
+      logging.info("Running Thread")
+      print("Student %s's doing...." % student_id)
+      await asyncio.sleep(7)
+      divide()
+  elif student_id == 3:
+      logging.info("Running Thread")
+      print("Student %s's doing...." % student_id)
+      await asyncio.sleep(7)
+      sub()
+  else:
+      print("Something Went Wrong")
+
+
+async def order_create(student_id):
+    print("Teacher Ordering of %s Studendt" % student_id)
+    await do_tasks(student_id)
+
+
+students = 4
+tasks = []
+
+for student in range(students):
+    tasks.append(order_create(student))
+
+print("== == Starting Time: "+ str(time.ctime()))
+loop = asyncio.get_event_loop()
+loop.run_until_complete(asyncio.wait(tasks))
+loop.close()
+print("== == Ending Time: " + str(time.ctime()))
+
